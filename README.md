@@ -1,4 +1,4 @@
-#How to use the API
+# How to use the API
 
 Start the app by the command:
 `npm install` and later just execute `npm start`
