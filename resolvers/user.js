@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const {secretJwt} = require("../config");
 const { AuthenticationError } = require('apollo-server-errors');
 const {findUserByName} = require("../mockData");
@@ -20,7 +21,11 @@ const userResolvers = {
       if (!user) { throw new AuthenticationError('Invalid Login'); }
       const passwordMatch = await bcrypt.compare(password, user.password);
       if (!passwordMatch) { throw new AuthenticationError('Invalid Login'); }
-      const token = jwt.sign( user, secretJwt,
+      const token = jwt.sign(
+{
+            username: user.username
+        },
+        secretJwt,
         {
           expiresIn: '30d',
         },

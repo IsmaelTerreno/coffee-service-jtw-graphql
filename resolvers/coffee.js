@@ -9,6 +9,6 @@ const coffeeResolvers = {
   },
 };
 
-module.exports ={
+module.exports = {
   coffeeResolvers
 };

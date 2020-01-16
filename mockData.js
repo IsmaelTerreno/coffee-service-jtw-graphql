@@ -18,12 +18,7 @@ const coffeesMock = [
 ];
 
 // Only a simulated database for demonstration purposes.
-const usersMock = [
-  {
-    username: "logan",
-    password: "logan",
-  },
-];
+const usersMock = [];
 
 const findUserByName = (username) => {
     return usersMock.filter((user) => user.username === username)[0];
