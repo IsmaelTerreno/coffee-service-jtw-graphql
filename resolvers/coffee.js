@@ -2,7 +2,10 @@ const {coffeesMock} = require("../mockData");
 
 const coffeeResolvers = {
   Query: {
-    coffees: () => coffeesMock,
+    coffees: (parent, args, context) => {
+      if (!context.user) return null;
+      return coffeesMock;
+    },
   },
 };
 

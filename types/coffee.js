@@ -6,7 +6,7 @@ const coffeeType = gql`
     price: Float
   }
   
-  type Query {
+  extend type Query {
     coffees: [Coffee]
   }
 `;
